@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "concurrently 'npm run dev:css' 'npm run dev:next'",
+    "dev:next": "next dev",
+    "dev:css": "unocss './pages/**/*.{ts,tsx}' -o ./styles/uno.css --watch",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -17,8 +19,14 @@
     "@types/node": "18.11.3",
     "@types/react": "18.0.21",
     "@types/react-dom": "18.0.6",
+    "@unocss/preset-attributify": "^0.45.30",
+    "@unocss/preset-uno": "^0.45.30",
+    "@unocss/preset-web-fonts": "^0.45.30",
+    "@unocss/transformer-directives": "^0.45.30",
+    "concurrently": "^7.5.0",
     "eslint": "8.25.0",
     "eslint-config-next": "12.3.1",
-    "typescript": "4.8.4"
+    "typescript": "4.8.4",
+    "unocss": "^0.45.30"
   }
 }
