@@ -9,9 +9,7 @@ export default function Layout({ children }: Props) {
   return (
     <>
       <Meta />
-      <div className="min-h-screen">
-        <main>{children}</main>
-      </div>
+      <main max-w="2xl md:screen" min-h="screen">{children}</main>
       <Footer />
     </>
   )
