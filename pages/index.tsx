@@ -1,5 +1,5 @@
 import Layout from '../components/layout'
-import Head from 'next/head'
+import { getPosts } from '../lib/api'
 
 export default function Index({ allPosts }: { allPosts: []}) {
 
@@ -13,6 +13,7 @@ export default function Index({ allPosts }: { allPosts: []}) {
 }
 
 export async function getStaticProps() {
+  await getPosts()
   return {
     props: { allPosts: [] },
   }
