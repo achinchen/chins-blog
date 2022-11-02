@@ -1,5 +1,5 @@
 import Layout from '../components/layout'
-import { getPosts } from '../lib/api'
+import { getAllPostsForHome } from '../lib/api'
 
 export default function Index({ allPosts }: { allPosts: []}) {
 
@@ -13,7 +13,8 @@ export default function Index({ allPosts }: { allPosts: []}) {
 }
 
 export async function getStaticProps() {
-  await getPosts()
+  const a = await getAllPostsForHome()
+  console.log(a)
   return {
     props: { allPosts: [] },
   }
