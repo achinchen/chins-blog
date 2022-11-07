@@ -1,6 +1,6 @@
 type FetchResponse = {
   data?: {
-    postCollection?: {
+    blogPostCollection?: {
       items: any[]
     }
   }
@@ -15,9 +15,6 @@ coverImage {
 date
 author {
   name
-  picture {
-    url
-  }
 }
 excerpt
 content {
@@ -54,17 +51,17 @@ async function fetchGraphQL(query: string) {
 }
 
 function extractPost(fetchResponse: FetchResponse) {
-  return fetchResponse?.data?.postCollection?.items?.[0]
+  return fetchResponse?.data?.blogPostCollection?.items?.[0]
 }
 
 function extractPostEntries(fetchResponse: FetchResponse) {
-  return fetchResponse?.data?.postCollection?.items
+  return fetchResponse?.data?.blogPostCollection?.items
 }
 
 export async function getAllPostsWithSlug() {
   const entries = await fetchGraphQL(
     `query {
-      postCollection(where: { slug_exists: true }, order: date_DESC) {
+      blogPostCollection(where: { slug_exists: true }, order: date_DESC, limit: 10) {
         items {
           ${POST_GRAPHQL_FIELDS}
         }
@@ -77,7 +74,7 @@ export async function getAllPostsWithSlug() {
 export async function getAllPostsForHome() {
   const entries = await fetchGraphQL(
     `query {
-      postCollection(order: date_DESC) {
+      blogPostCollection(order: date_DESC, limit: 10) {
         items {
           ${POST_GRAPHQL_FIELDS}
         }
@@ -90,7 +87,7 @@ export async function getAllPostsForHome() {
 export async function getPostAndMorePosts(slug: string) {
   const entry = await fetchGraphQL(
     `query {
-      postCollection(where: { slug: "${slug}" }, limit: 1) {
+      blogPostCollection(where: { slug: "${slug}" }, limit: 1) {
         items {
           ${POST_GRAPHQL_FIELDS}
         }
@@ -99,7 +96,7 @@ export async function getPostAndMorePosts(slug: string) {
   )
   const entries = await fetchGraphQL(
     `query {
-      postCollection(where: { slug_not_in: "${slug}" }, order: date_DESC, limit: 2) {
+      blogPostCollection(where: { slug_not_in: "${slug}" }, order: date_DESC, limit: 2) {
         items {
           ${POST_GRAPHQL_FIELDS}
         }

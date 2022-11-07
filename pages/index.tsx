@@ -13,8 +13,11 @@ export default function Index({ allPosts }: { allPosts: []}) {
 }
 
 export async function getStaticProps() {
-  const a = await getAllPostsForHome()
-  console.log(a)
+  try {
+    const a = await getAllPostsForHome()
+  } catch (e) {
+    console.error(e)
+  }
   return {
     props: { allPosts: [] },
   }
