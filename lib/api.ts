@@ -1,6 +1,14 @@
-type FetchResponse = {
+type FetchPostResponse = {
   data?: {
     blogPostCollection?: {
+      items: any[]
+    }
+  }
+}
+
+type FetchAuthorResponse = {
+  data?: {
+    authorCollection?: {
       items: any[]
     }
   }
@@ -13,9 +21,6 @@ coverImage {
   url
 }
 date
-author {
-  name
-}
 excerpt
 content {
   json
@@ -33,6 +38,15 @@ content {
 }
 `
 
+
+const AUTHOR_GRAPHQL= `
+name
+picture {
+  url
+}
+`
+
+
 async function fetchGraphQL(query: string) {
   const response = await fetch(
     `https://graphql.contentful.com/content/v1/spaces/${process.env.CONTENTFUL_SPACE_ID}`,
@@ -46,18 +60,35 @@ async function fetchGraphQL(query: string) {
     }
   )
   const result = await response.json()
-  console.log(result)
   return result
 }
 
-function extractPost(fetchResponse: FetchResponse) {
+function extractPost(fetchResponse: FetchPostResponse) {
   return fetchResponse?.data?.blogPostCollection?.items?.[0]
 }
 
-function extractPostEntries(fetchResponse: FetchResponse) {
+function extractPostEntries(fetchResponse: FetchPostResponse) {
   return fetchResponse?.data?.blogPostCollection?.items
 }
 
+
+function extractAuthorEntries(fetchResponse: FetchAuthorResponse) {
+  return fetchResponse?.data?.authorCollection?.items[0]
+}
+
+
+export async function getAuthor() {
+  const entries = await fetchGraphQL(
+    `query {
+      authorCollection(limit: 1) {
+        items {
+          ${AUTHOR_GRAPHQL}
+        }
+      }
+    }`
+  )
+  return extractAuthorEntries(entries)
+}
 export async function getAllPostsWithSlug() {
   const entries = await fetchGraphQL(
     `query {
@@ -71,7 +102,7 @@ export async function getAllPostsWithSlug() {
   return extractPostEntries(entries)
 }
 
-export async function getAllPostsForHome() {
+export async function getAllPosts() {
   const entries = await fetchGraphQL(
     `query {
       blogPostCollection(order: date_DESC, limit: 10) {

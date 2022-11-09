@@ -1,12 +1,14 @@
 import Layout from '../components/layout'
-import { getAllPostsForHome } from '../lib/api'
+import Post from '../components/post'
+import { getAllPosts } from '../lib/api'
 
-export default function Index({ allPosts }: { allPosts: []}) {
+export default function Index({ posts }: { posts: []}) {
+  const heroPost = posts.slice(0)
 
   return (
     <>
       <Layout>
-        <div>TEST</div>
+        {heroPost && <Post {...heroPost} />}
       </Layout>
     </>
   )
@@ -14,11 +16,14 @@ export default function Index({ allPosts }: { allPosts: []}) {
 
 export async function getStaticProps() {
   try {
-    const a = await getAllPostsForHome()
+    const posts = await getAllPosts()
+    return {
+      props: { posts },
+    }
   } catch (e) {
     console.error(e)
-  }
-  return {
-    props: { allPosts: [] },
+    return {
+      props: { posts: [] }
+    }
   }
 }
