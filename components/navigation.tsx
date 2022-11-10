@@ -19,8 +19,8 @@ const LINKS = [
 
 export default function Navigation() {
   return (
-    <nav>
-      <ul my="1" flex="~">
+    <nav my="2">
+      <ul flex="~">
         {LINKS.map(({ href, name }) => (
           <li flex="inline" mr="2" key={name}>
             <Link href={href}>

@@ -1,9 +1,7 @@
 export default function Footer() {
   return (
-    <>
-      <footer>
-        {new Date().getFullYear()}© Chin Chen
-      </footer>
-    </>
+    <footer text="center" mb="2">
+      {new Date().getFullYear()}© Chin Chen
+    </footer>
   )
 }

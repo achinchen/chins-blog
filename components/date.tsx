@@ -3,7 +3,7 @@ type Props = {
 }
 
 export default function DateComponent({ children }: Props) {
-  const datetime = new Date(children).toLocaleDateString()
+  const datetime = new Date(children).toDateString()
   
   return (
     <time dateTime={children}>

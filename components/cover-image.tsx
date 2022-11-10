@@ -4,7 +4,7 @@ import ContentfulImage from './contentful-image'
 type Props = {
   title: string;
   url: string;
-  slug: string;
+  slug?: string;
 }
 
 export default function CoverImage({ title, url, slug }: Props) {

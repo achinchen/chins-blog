@@ -28,9 +28,9 @@ export default function HeroPost({
   slug,
 }: Props) {
   return (
-    <section>
+    <section mt="2">
       <CoverImage title={title} slug={slug} url={coverImage.url} />
-      <h3 mb="4" text="4xl lg:6xl" leading="tight">
+      <h3 mb="4" text="4xl" leading="tight">
         <Link href={`/posts/${slug}`} hover="underline">
           {title}
         </Link>

@@ -1,9 +1,9 @@
 import Layout from '../components/layout'
-import Post from '../components/post'
+import Post from '../components/hero-post'
 import { getAllPosts } from '../lib/api'
 
-export default function Index({ posts }: { posts: []}) {
-  const heroPost = posts.slice(0)
+export default function Index({ posts }) {
+  const heroPost = posts[0]
 
   return (
     <>

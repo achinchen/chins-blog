@@ -10,7 +10,7 @@ export default function Layout({ children }: Props) {
   return (
     <>
       <Meta />
-      <main max-w="screen md:2xl" ma="auto" min-h="screen">
+      <main max-w="screen md:2xl" ma="auto" min-h="95vh">
         <Navigation />
         {children}
       </main>
