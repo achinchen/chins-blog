@@ -1,5 +1,5 @@
 type Props = {
-  children: string
+  children: Post['date']
 }
 
 export default function DateComponent({ children }: Props) {

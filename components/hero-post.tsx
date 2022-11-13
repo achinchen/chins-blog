@@ -1,30 +1,14 @@
 import Link from 'next/link'
-import Avatar from './avatar'
-import Date from './date'
-import CoverImage from './cover-image'
+import Date from '~/components/date'
+import CoverImage from '~/components/cover-image'
 
-type Props = {
-  title: string;
-  coverImage: {
-    url: string
-  };
-  date: string;
-  excerpt: string;
-  author: {
-    name: string;
-    picture: {
-      url: string
-    }
-  };
-  slug: string;
-}
+type Props = Post;
 
 export default function HeroPost({
   title,
   coverImage,
   date,
   excerpt,
-  author,
   slug,
 }: Props) {
   return (
@@ -37,7 +21,6 @@ export default function HeroPost({
       </h3>
       <Date>{date}</Date>
       <p text="lg" leading="relaxed" mb="4">{excerpt}</p>
-      {author && <Avatar name={author.name} picture={author.picture} />}
     </section>
   )
 }

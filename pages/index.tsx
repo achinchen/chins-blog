@@ -1,8 +1,12 @@
-import Layout from '../components/layout'
-import Post from '../components/hero-post'
-import { getAllPosts } from '../lib/api'
+import Layout from '~/components/layout'
+import Post from '~/components/hero-post'
+import { getAllPosts } from '~/lib/api'
 
-export default function Index({ posts }) {
+type Props = {
+  posts: Post[] | []
+}
+
+export default function Index({ posts }: Props) {
   const heroPost = posts[0]
 
   return (
@@ -14,9 +18,9 @@ export default function Index({ posts }) {
   )
 }
 
-export async function getStaticProps() {
+export async function getStaticProps(): Promise<{ props: Props }>  {
   try {
-    const posts = await getAllPosts()
+    const posts = await getAllPosts() as Post[]
     return {
       props: { posts },
     }

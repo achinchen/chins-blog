@@ -1,16 +1,23 @@
+import type { Content } from '~/components/post-body'
+import { getAuthor, getAllPostsWithSlug, getPostAndMorePosts } from '~/lib/api'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
 import ErrorPage from 'next/error'
-import Container from '../../components/container'
-import PostBody from '../../components/post-body'
-import MoreStories from '../../components/more-stories'
-import PostHeader from '../../components/post-header'
-import Separator from '../../components/separator'
-import Layout from '../../components/layout'
-import { getAllPostsWithSlug, getPostAndMorePosts } from '../../lib/api'
-import PostTitle from '../../components/post-body'
+import Container from '~/components/container'
+import PostBody from '~/components/post-body'
+import MoreStories from '~/components/more-stories'
+import PostHeader from '~/components/post-header'
+import Separator from '~/components/separator'
+import Layout from '~/components/layout'
+import PostTitle from '~/components/post-title'
 
-export default function Post({ post, morePosts }) {
+type Props = {
+  post: Post & { content: Content },
+  morePosts: Post[] | null,
+  author: Author
+}
+
+export default function Post({ post, morePosts, author }: Props) {
   const router = useRouter()
 
   if (!router.isFallback && !post) {
@@ -32,7 +39,7 @@ export default function Post({ post, morePosts }) {
                 title={post.title}
                 coverImage={post.coverImage}
                 date={post.date}
-                author={post.author}
+                author={author}
               />
               <PostBody content={post.content} />
             </article>
@@ -47,22 +54,26 @@ export default function Post({ post, morePosts }) {
   )
 }
 
-export async function getStaticProps({ params, preview = false }) {
-  const data = await getPostAndMorePosts(params.slug, preview)
+export async function getStaticProps({ params }: { params: { slug: string }}) {
+  const [data, author] = await Promise.all([
+    getPostAndMorePosts(params.slug),
+    getAuthor()
+  ])
 
   return {
     props: {
-      preview,
       post: data?.post ?? null,
       morePosts: data?.morePosts ?? null,
+      author
     },
   }
 }
 
 export async function getStaticPaths() {
-  const allPosts = await getAllPostsWithSlug()
+  const posts = await getAllPostsWithSlug()
+  
   return {
-    paths: allPosts?.map(({ slug }) => `/posts/${slug}`) ?? [],
+    paths: posts?.map(({ slug }) => `/posts/${slug}`) ?? [],
     fallback: true,
   }
 }

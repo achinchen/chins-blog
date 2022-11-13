@@ -1,16 +1,16 @@
 import Link from 'next/link'
-import Avatar from '../components/avatar'
-import DateComponent from '../components/date'
-import CoverImage from './cover-image'
+import DateComponent from '~/components/date'
+import CoverImage from '~/components/cover-image'
+
+type Props = Post
 
 export default function PostPreview({
   title,
   coverImage,
   date,
   excerpt,
-  author,
   slug,
-}) {
+}: Props) {
   return (
     <div>
       <div mb="5">
@@ -25,7 +25,6 @@ export default function PostPreview({
         <DateComponent>{date}</DateComponent>
       </div>
       <p text="lg" leading="relaxed" mb="4">{excerpt}</p>
-      {author && <Avatar name={author.name} picture={author.picture} />}
     </div>
   )
 }

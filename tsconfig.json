@@ -17,7 +17,8 @@
     "baseUrl": ".",
     "paths": {
       "~/components/*": ["./components/*"],
-      "~/constants/*": ["./constants/*"]
+      "~/constants/*": ["./constants/*"],
+      "~/lib/*": ["./lib/*"],
     },
     "typeRoots": ["./node_modules/@types", "./types"],
   },

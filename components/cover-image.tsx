@@ -1,3 +1,4 @@
+import type { ImageLoaderProps } from 'next/image'
 import Link from 'next/link'
 import ContentfulImage from './contentful-image'
 
@@ -21,7 +22,9 @@ export default function CoverImage({ title, url, slug }: Props) {
     <div>
       {slug ? (
         <Link href={`/posts/${slug}`} aria-label={title}>
-          {image}
+          <a>
+            {image}
+          </a>
         </Link>
       ) : (
         image

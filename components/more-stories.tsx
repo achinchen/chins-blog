@@ -1,6 +1,10 @@
-import PostPreview from '../components/post-preview'
+import PostPreview from '~/components/post-preview'
 
-export default function MoreStories({ posts }) {
+type Props = {
+  posts: Post[];
+}
+
+export default function MoreStories({ posts }: Props) {
   return (
     <section>
       <h2 mb="8" text="6xl md:7xl" font="bold" tracking="tighter" leading="tight">
@@ -13,7 +17,6 @@ export default function MoreStories({ posts }) {
             title={post.title}
             coverImage={post.coverImage}
             date={post.date}
-            author={post.author}
             slug={post.slug}
             excerpt={post.excerpt}
           />

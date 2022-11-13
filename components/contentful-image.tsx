@@ -1,15 +1,10 @@
+import type { ImageLoaderProps } from 'next/image'
 import Image from 'next/image'
 
-type Parameters = {
-  src: string;
-  width: string;
-  quality?: string;
-}
-
-const contentfulLoader = ({ src, width, quality }: Parameters) => {
+const contentfulLoader = ({ src, width, quality }: ImageLoaderProps) => {
   return `${src}?w=${width}&q=${quality || 75}`
 }
 
 export default function ContentfulImage(props: any) {
-  return <Image loader={contentfulLoader} {...props} alt={props.alt} />
+  return <Image loader={contentfulLoader} alt={props.alt} {...props} />
 }

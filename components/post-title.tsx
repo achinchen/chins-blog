@@ -1,5 +1,5 @@
 type Props = {
-  children: JSX.Element
+  children: Post['title']
 }
 
 export default function PostTitle({ children }: Props) {
