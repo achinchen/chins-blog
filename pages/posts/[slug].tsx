@@ -5,7 +5,7 @@ import Head from 'next/head'
 import ErrorPage from 'next/error'
 import Container from '~/components/container'
 import PostBody from '~/components/post-body'
-import MoreStories from '~/components/more-stories'
+import MorePosts from '~/components/more-stories'
 import PostHeader from '~/components/post-header'
 import Separator from '~/components/separator'
 import Layout from '~/components/layout'
@@ -45,7 +45,7 @@ export default function Post({ post, morePosts, author }: Props) {
             </article>
             <Separator />
             {morePosts && morePosts.length > 0 && (
-              <MoreStories posts={morePosts} />
+              <MorePosts posts={morePosts} />
             )}
           </>
         )}

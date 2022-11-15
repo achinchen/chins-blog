@@ -96,7 +96,7 @@
 [text~="center"]{text-align:center;}
 [text~="\33 xl"]{font-size:1.875rem;line-height:2.25rem;}
 [text~="\34 xl"]{font-size:2.25rem;line-height:2.5rem;}
-[text~="\36 xl"]{font-size:3.75rem;line-height:1;}
+[text~="\35 xl"]{font-size:3rem;line-height:1;}
 [text~="lg"]{font-size:1.125rem;line-height:1.75rem;}
 .font-bold,
 [font~="bold"]{font-weight:700;}
@@ -121,11 +121,9 @@
 .md\:gap-y-32,
 [grid~="md\:gap-y-32"]{grid-row-gap:8rem;row-gap:8rem;}
 [text~="md\:left"]{text-align:left;}
-[text~="md\:7xl"]{font-size:4.5rem;line-height:1;}
 [leading~="md\:none"]{line-height:1;}
 }
 @media (min-width: 1024px){
 .lg\:gap-x-32,
 [grid~="lg\:gap-x-32"]{grid-column-gap:8rem;column-gap:8rem;}
-[text~="lg\:8xl"]{font-size:6rem;line-height:1;}
 }
