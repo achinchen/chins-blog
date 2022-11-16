@@ -1,15 +1,15 @@
-import type { Content } from '~/components/post-body'
+import type { Content } from '~/components/post/post-body'
 import { getAuthor, getAllPostsWithSlug, getPostAndMorePosts } from '~/lib/api'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
 import ErrorPage from 'next/error'
-import Container from '~/components/container'
-import PostBody from '~/components/post-body'
-import MorePosts from '~/components/more-stories'
-import PostHeader from '~/components/post-header'
-import Separator from '~/components/separator'
+import Container from '~/components/common/container'
+import PostBody from '~/components/post/post-body'
+import MorePosts from '~/components/post/more-posts'
+import PostHeader from '~/components/post/post-header'
+import PostTitle from '~/components/post/post-title'
+import Separator from '~/components/common/separator'
 import Layout from '~/components/layout'
-import PostTitle from '~/components/post-title'
 
 type Props = {
   post: Post & { content: Content },

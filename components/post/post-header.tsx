@@ -1,6 +1,6 @@
-import Avatar from '~/components/avatar'
+import Avatar from '~/components/common/avatar'
 import DateComponent from '~/components/date'
-import CoverImage from '~/components/cover-image'
+import CoverImage from '~/components/common/cover-image'
 import PostTitle from '~/components/post-title'
 
 type Props = {

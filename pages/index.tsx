@@ -1,5 +1,6 @@
 import Layout from '~/components/layout'
-import Post from '~/components/hero-post'
+import Post from '~/components/post/hero-post'
+import MorePosts from '~/components/post/more-posts'
 import { getAllPosts } from '~/lib/api'
 
 type Props = {
@@ -8,11 +9,17 @@ type Props = {
 
 export default function Index({ posts }: Props) {
   const heroPost = posts[0]
+  const morePosts = posts.slice(1)
 
   return (
     <>
       <Layout>
-        {heroPost && <Post {...heroPost} />}
+        <>
+          {heroPost && <Post {...heroPost} />}
+          {morePosts && morePosts.length > 0 && (
+            <MorePosts posts={morePosts} />
+          )}
+        </>
       </Layout>
     </>
   )

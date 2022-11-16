@@ -1,4 +1,4 @@
-import PostPreview from '~/components/post-preview'
+import PostPreview from '~/components/post/post-preview'
 
 type Props = {
   posts: Post[];
