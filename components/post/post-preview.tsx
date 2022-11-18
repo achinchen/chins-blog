@@ -12,18 +12,12 @@ export default function PostPreview({
   slug,
 }: Props) {
   return (
-    <div>
-      <div mb="5">
-        <CoverImage title={title} slug={slug} url={coverImage.url} />
-      </div>
+    <div mt="12">
       <h3 text="3xl" mb="3" leading="snug">
         <Link href={`/posts/${slug}`} hover="underline">
           {title}
         </Link>
       </h3>
-      <div text="lg" mb="4">
-        <DateComponent>{date}</DateComponent>
-      </div>
       <p text="lg" leading="relaxed" mb="4">{excerpt}</p>
     </div>
   )

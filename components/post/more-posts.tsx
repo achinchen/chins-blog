@@ -6,11 +6,8 @@ type Props = {
 
 export default function MorePosts({ posts }: Props) {
   return (
-    <section>
-      <h2 mb="8" text="5xl" font="bold" tracking="tighter" leading="tight">
-        More posts
-      </h2>
-      <div grid="~ grid-cols-1 md:grid-cols-2 md:gap-x-16 lg:gap-x-32 gap-y-20 md:gap-y-32" mb="32">
+    <section mt="12">
+      <div flex="~ col" mb="32">
         {posts.map((post) => (
           <PostPreview
             key={post.slug}

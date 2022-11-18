@@ -22,7 +22,7 @@ export default function CoverImage({ title, url, slug }: Props) {
     <div>
       {slug ? (
         <Link href={`/posts/${slug}`} aria-label={title}>
-          <a>
+          <a bg="none hover:none">
             {image}
           </a>
         </Link>

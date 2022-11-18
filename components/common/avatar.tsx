@@ -1,4 +1,4 @@
-import ContentfulImage from '~/components/contentful-image'
+import ContentfulImage from '~/components/common/contentful-image'
 
 type Props = Author
 

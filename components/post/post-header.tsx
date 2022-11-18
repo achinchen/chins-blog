@@ -1,7 +1,7 @@
 import Avatar from '~/components/common/avatar'
-import DateComponent from '~/components/date'
+import DateComponent from '~/components/common/date'
 import CoverImage from '~/components/common/cover-image'
-import PostTitle from '~/components/post-title'
+import PostTitle from '~/components/post/post-title'
 
 type Props = {
   author: Author
@@ -14,7 +14,7 @@ export default function PostHeader({ title, coverImage, date, author }: Props) {
       <div flex="~" align="items-center" mb="md:12">
         {author && <>
           <Avatar name={author.name} picture={author.picture} />
-          <h3 m="0" font="normal">{author.name}</h3>
+          <h3 m="0" font="light">{author.name}</h3>
         </>}
       </div>
       <div mb="8 md:16" mx="sm:0">

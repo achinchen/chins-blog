@@ -10,21 +10,21 @@ const LINKS = [
     href: '/me',
     name: 'About'
   },
-  {
-    href: '/projects',
-    name: 'Project'
-  }
+  // {
+  //   href: '/projects',
+  //   name: 'Project'
+  // }
 ]
 
 
 export default function Navigation() {
   return (
-    <nav my="2">
-      <ul flex="~">
+    <nav>
+      <ul flex="~" justify="end" mt="4" mb="12 sm:24">
         {LINKS.map(({ href, name }) => (
-          <li flex="inline" mr="2" key={name}>
-            <Link href={href}>
-              <a pa="2">{name}</a>
+          <li flex="inline" mr="4" key={name}>
+            <Link pa="2" href={href}>
+              <a text="5" font="light">{name}</a>
             </Link>
           </li>
         ))}
