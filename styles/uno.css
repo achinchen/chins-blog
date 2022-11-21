@@ -49,7 +49,6 @@
 .relative,
 [position~="relative"]{position:relative;}
 .ma{margin:auto;}
-[m~="\30 "]{margin:0rem;}
 [ma~="\34 "]{margin:1rem;}
 .mx{margin-left:1rem;margin-right:1rem;}
 [mx~="auto"]{margin-left:auto;margin-right:auto;}
@@ -78,7 +77,6 @@
 [flex~="\~"]{display:flex;}
 [flex~="inline"]{display:inline-flex;}
 [flex~="col"]{flex-direction:column;}
-.items-center{align-items:center;}
 [justify~="end"]{justify-content:flex-end;}
 .border{border-width:1px;border-style:solid;}
 .rounded{border-radius:0.25rem;}
@@ -106,11 +104,11 @@
 [hover~="underline"]:hover{text-decoration-line:underline;}
 @media (min-width: 640px){
 [mx~="sm\:0"]{margin-left:0rem;margin-right:0rem;}
+[mb~="sm\:12"]{margin-bottom:3rem;}
 [mb~="sm\:24"]{margin-bottom:6rem;}
 }
 @media (min-width: 768px){
 [ma~="md\:auto"]{margin:auto;}
-[mb~="md\:12"]{margin-bottom:3rem;}
 [mb~="md\:16"]{margin-bottom:4rem;}
 [max-w~="md\:2xl"]{max-width:42rem;}
 [text~="md\:left"]{text-align:left;}

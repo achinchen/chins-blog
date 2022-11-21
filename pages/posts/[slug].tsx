@@ -1,5 +1,5 @@
 import type { Content } from '~/components/post/post-body'
-import { getAuthor, getAllPostsWithSlug, getPostAndMorePosts } from '~/lib/api'
+import { getAllPostsWithSlug, getPostAndMorePosts } from '~/lib/api'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
 import ErrorPage from 'next/error'
@@ -14,10 +14,9 @@ import Layout from '~/components/layout'
 type Props = {
   post: Post & { content: Content },
   morePosts: Post[] | null,
-  author: Author
 }
 
-export default function Post({ post, morePosts, author }: Props) {
+export default function Post({ post, morePosts }: Props) {
   const router = useRouter()
 
   if (!router.isFallback && !post) {
@@ -39,7 +38,6 @@ export default function Post({ post, morePosts, author }: Props) {
                 title={post.title}
                 coverImage={post.coverImage}
                 date={post.date}
-                author={author}
               />
               <PostBody content={post.content} />
             </article>
@@ -55,16 +53,12 @@ export default function Post({ post, morePosts, author }: Props) {
 }
 
 export async function getStaticProps({ params }: { params: { slug: string }}) {
-  const [data, author] = await Promise.all([
-    getPostAndMorePosts(params.slug),
-    getAuthor()
-  ])
+  const data = await getPostAndMorePosts(params.slug)
 
   return {
     props: {
       post: data?.post ?? null,
       morePosts: data?.morePosts ?? null,
-      author
     },
   }
 }

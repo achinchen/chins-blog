@@ -10,10 +10,10 @@ const LINKS = [
     href: '/me',
     name: 'About'
   },
-  // {
-  //   href: '/projects',
-  //   name: 'Project'
-  // }
+  {
+    href: 'https://github.com/achinchen',
+    name: 'Github'
+  }
 ]
 
 
