@@ -6,7 +6,9 @@ import transformerDirective from '@unocss/transformer-directives';
 
 export default defineConfig({
   presets: [
-    presetUno(),
+    presetUno({
+      attributifyPseudo: true
+    }),
     presetAttributify(),
     presetWebFonts({
       provider: 'google',
@@ -15,5 +17,10 @@ export default defineConfig({
       }
     })
   ],
+  theme: {
+    colors: {
+      link: 'var(--link-bg)',
+    },
+  },
   transformers: [transformerDirective()]
 });

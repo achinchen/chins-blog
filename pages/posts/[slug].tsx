@@ -1,13 +1,13 @@
-import type { Content } from '~/components/post/post-body'
+import type { Content } from '~/components/post/body'
 import { getAllPostsWithSlug, getPostAndMorePosts } from '~/lib/api'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
 import ErrorPage from 'next/error'
 import Container from '~/components/common/container'
-import PostBody from '~/components/post/post-body'
-import MorePosts from '~/components/post/more-posts'
-import PostHeader from '~/components/post/post-header'
-import PostTitle from '~/components/post/post-title'
+import PostBody from '~/components/post/body'
+import PostCards from '~/components/post/cards'
+import PostHeader from '~/components/post/header'
+import PostTitle from '~/components/post/title'
 import Separator from '~/components/common/separator'
 import Layout from '~/components/layout'
 
@@ -43,7 +43,9 @@ export default function Post({ post, morePosts }: Props) {
             </article>
             <Separator />
             {morePosts && morePosts.length > 0 && (
-              <MorePosts posts={morePosts} />
+              <>
+                <PostCards posts={morePosts} />
+              </>
             )}
           </>
         )}

@@ -1,0 +1,3 @@
+.link:hover > h3::after {
+  transform: scaleY(12) scaleX(8);
+}

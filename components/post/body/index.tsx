@@ -1,7 +1,7 @@
 import type { Document } from '@contentful/rich-text-types'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { BLOCKS } from '@contentful/rich-text-types'
-import markdownStyles from './markdown-styles.module.css'
+import markdownStyles from './markdown.module.css'
 import RichTextAsset from './rich-text-asset'
 
 export type Content = {

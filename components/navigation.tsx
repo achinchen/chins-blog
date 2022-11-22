@@ -7,10 +7,6 @@ const LINKS = [
     name: 'Home'
   },
   {
-    href: '/me',
-    name: 'About'
-  },
-  {
     href: 'https://github.com/achinchen',
     name: 'Github'
   }

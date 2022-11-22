@@ -14,9 +14,9 @@ export default function HeroPost({
   return (
     <section mt="2">
       <CoverImage title={title} slug={slug} url={coverImage.url} />
-      <h3 mb="4" text="4xl" leading="tight">
-        <Link href={`/posts/${slug}`} hover="underline">
-          {title}
+      <h3 mb="4" text="4xl" leading="tight" font="semibold">
+        <Link href={`/posts/${slug}`}>
+          <a bg="none">{title}</a>
         </Link>
       </h3>
       <Date>{date}</Date>

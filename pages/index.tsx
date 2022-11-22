@@ -1,6 +1,6 @@
 import Layout from '~/components/layout'
-import Post from '~/components/post/hero-post'
-import MorePosts from '~/components/post/more-posts'
+import Post from '~/components/post/hero'
+import PostCards from '~/components/post/cards'
 import { getAllPosts } from '~/lib/api'
 
 type Props = {
@@ -17,7 +17,7 @@ export default function Index({ posts }: Props) {
         <>
           {heroPost && <Post {...heroPost} />}
           {morePosts && morePosts.length > 0 && (
-            <MorePosts posts={morePosts} />
+            <PostCards posts={morePosts} />
           )}
         </>
       </Layout>

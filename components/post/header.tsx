@@ -1,10 +1,10 @@
 import DateComponent from '~/components/common/date'
 import CoverImage from '~/components/common/cover-image'
-import PostTitle from '~/components/post/post-title'
+import PostTitle from '~/components/post/title'
 
 type Props = Pick<Post, 'title' | 'coverImage' | 'date'>
 
-export default function PostHeader({ title, coverImage, date, author }: Props) {
+export default function PostHeader({ title, coverImage, date }: Props) {
   return (
     <>
       <PostTitle>{title}</PostTitle>
