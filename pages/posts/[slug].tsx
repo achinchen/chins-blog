@@ -43,9 +43,7 @@ export default function Post({ post, morePosts }: Props) {
             </article>
             <Separator />
             {morePosts && morePosts.length > 0 && (
-              <>
-                <PostCards posts={morePosts} />
-              </>
+              <PostCards posts={morePosts} transform="translate-x-4" />
             )}
           </>
         )}

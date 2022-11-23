@@ -18,10 +18,14 @@ a:hover {
   background: linear-gradient(to bottom, transparent 0%, transparent 0%, var(--link-bg) 0%, var(--link-bg) 100%);
 }
 
+h2, h3 {
+  font-family: "freight-display-pro", serif;
+}
+
 * {
   box-sizing: border-box;
 }
-/* 
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
@@ -31,4 +35,4 @@ a:hover {
     color: #c9d1d9;
     background: #0d1117;
   }
-} */
+}

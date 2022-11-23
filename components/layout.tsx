@@ -1,6 +1,5 @@
 import Meta from '~/components/meta'
 import Navigation from '~/components/navigation'
-import Footer from '~/components/footer'
 
 type Props = {
   children: JSX.Element;
@@ -14,7 +13,6 @@ export default function Layout({ children }: Props) {
         <Navigation />
         {children}
       </main>
-      <Footer />
     </>
   )
 }

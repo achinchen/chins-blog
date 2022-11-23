@@ -1,23 +1,24 @@
+import type { AttributifyAttributes } from '@unocss/preset-attributify';
 import Link from 'next/link'
-import style from './index.module.css'
+import DateComponent from '~/components/common/date'
 
 type Props = {
   posts: Post[];
-}
+} & AttributifyAttributes;
 
-export default function PostCards({ posts }: Props) {
+export default function PostCards({ posts, ...attrs }: Props) {
   return (
-    <section mt="20" mb="28">
-      <div flex="~" gap="20">
-        {posts.map(({slug, title, date, excerpt}) => (
+    <section mt="20" mb="28" mx="4" {...attrs}>
+      <div flex="~ col md:row wrap" gap="y-12 md:12" mx="md:-4">
+        {posts.map(({slug, title, excerpt, date}) => (
           <Link href={`/posts/${slug}`} key={slug}>
-            <a group="" flex="1/2" overflow="hidden" p="5" m="-5" bg="none hover:none">
+            <a group="" flex="basis-1/2" overflow="hidden" p="4" m="-4" bg="none hover:none">
               <h3
                 display="inline-block"
                 position="relative"
                 m="0"
-                text="xl"
-                leading="snug"
+                text="2xl"
+                leading="tight"
                 font="semibold"
                 after="
                   content-empty
@@ -41,7 +42,10 @@ export default function PostCards({ posts }: Props) {
                   ">
                 {title}
               </h3>
-              <p m="t-4 0" text="lg" leading="relaxed">{excerpt}</p>
+              <p m="t-3 0" text="base" line-clamp="2" max-h="12" min-h="12" overflow="hidden" leading="relaxed">
+                {excerpt ?? <DateComponent>{date}</DateComponent>}
+                
+              </p>
             </a>
           </Link>
         ))}
