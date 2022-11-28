@@ -133,11 +133,9 @@
 [text~="\33 xl"]{font-size:1.875rem;line-height:2.25rem;}
 [text~="\34 xl"]{font-size:2.25rem;line-height:2.5rem;}
 [text~="\35 "]{font-size:1.25rem;}
-[text~="\35 xl"]{font-size:3rem;line-height:1;}
 [text~="base"]{font-size:1rem;line-height:1.5rem;}
 [text~="lg"]{font-size:1.125rem;line-height:1.75rem;}
 [font~="light"]{font-weight:300;}
-[font~="medium"]{font-weight:500;}
 [font~="semibold"]{font-weight:600;}
 [leading~="relaxed"]{line-height:1.625;}
 [leading~="tight"]{line-height:1.25;}

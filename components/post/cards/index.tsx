@@ -43,9 +43,7 @@ export default function PostCards({ posts, ...attrs }: Props) {
                 {title}
               </h3>
               <p m="t-3 0" text="base" line-clamp="2" max-h="12" min-h="12" overflow="hidden" leading="relaxed">
-                {excerpt ?? <DateComponent>{date}</DateComponent>}
-                
-              </p>
+                {excerpt ?? <DateComponent>{date}</DateComponent>}              </p>
             </a>
           </Link>
         ))}
