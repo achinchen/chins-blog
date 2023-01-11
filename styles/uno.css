@@ -79,12 +79,11 @@
 [mt~="\32 0"]{margin-top:5rem;}
 [mt~="\33 0"]{margin-top:7.5rem;}
 .inline{display:inline;}
-.display-block,
-[after~="display-block"]::after,
-[block=""]{display:block;}
 .inline-block,
 [display~="inline-block"]{display:inline-block;}
 .hidden{display:none;}
+.display-block,
+[after~="display-block"]::after{display:block;}
 .h-3\.5,
 [after~="h-3\.5"]::after{height:0.875rem;}
 .w-\[calc\(100\%\+30px\)\],
