@@ -1,6 +1,5 @@
-import type { ImageLoaderProps } from 'next/image'
 import Link from 'next/link'
-import ContentfulImage from './contentful-image'
+import ContentfulImage from './image'
 
 type Props = {
   title: string;
@@ -8,7 +7,7 @@ type Props = {
   slug?: string;
 }
 
-export default function CoverImage({ title, url, slug }: Props) {
+export default function Cover({ title, url, slug }: Props) {
   const image = (
     <ContentfulImage
       width={2000}
