@@ -1,5 +1,5 @@
 import DateComponent from '~/components/common/date'
-import CoverImage from '~/components/common/cover-image'
+import CoverImage from '~/components/common/cover'
 import PostTitle from '~/components/post/title'
 
 type Props = Pick<Post, 'title' | 'coverImage' | 'date'>
