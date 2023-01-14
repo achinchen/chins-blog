@@ -1,14 +1,18 @@
-import { useRemark } from 'react-remark';
+import { Remark } from 'react-remark';
+import PostImage from './image'
 
 export default function PostBody({ content }: { content: string }) { 
-  const [reactContent, setMarkdownSource] = useRemark();
-  setMarkdownSource(content)
- 
+
   return (
     <div max-w="2xl" mx="auto">
-      <div>
-        {reactContent}
-      </div>
+      <Remark
+        rehypeReactOptions={{
+          components: {
+            img: PostImage
+          },
+        }}>
+        {content}
+      </Remark>
     </div>
   )
 }
