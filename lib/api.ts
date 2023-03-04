@@ -1,18 +1,11 @@
 type FetchPostResponse = {
   data?: {
-    blogPostCollection?: {
+    postCollection?: {
       items: any[]
     }
   }
 }
 
-type FetchAuthorResponse = {
-  data?: {
-    authorCollection?: {
-      items: any[]
-    }
-  }
-}
 
 const POST_GRAPHQL_FIELDS = `
 slug
@@ -24,15 +17,6 @@ date
 excerpt
 content
 `
-
-
-const AUTHOR_GRAPHQL= `
-name
-picture {
-  url
-}
-`
-
 
 async function fetchGraphQL(query: string) {
   const response = await fetch(
@@ -51,35 +35,18 @@ async function fetchGraphQL(query: string) {
 }
 
 function extractPost(fetchResponse: FetchPostResponse) {
-  return fetchResponse?.data?.blogPostCollection?.items?.[0]
+  return fetchResponse?.data?.postCollection?.items?.[0]
 }
 
 function extractPostEntries(fetchResponse: FetchPostResponse) {
-  return fetchResponse?.data?.blogPostCollection?.items
+  return fetchResponse?.data?.postCollection?.items
 }
 
 
-function extractAuthorEntries(fetchResponse: FetchAuthorResponse) {
-  return fetchResponse?.data?.authorCollection?.items[0]
-}
-
-
-export async function getAuthor() {
-  const entries = await fetchGraphQL(
-    `query {
-      authorCollection(limit: 1) {
-        items {
-          ${AUTHOR_GRAPHQL}
-        }
-      }
-    }`
-  )
-  return extractAuthorEntries(entries)
-}
 export async function getAllPostsWithSlug() {
   const entries = await fetchGraphQL(
     `query {
-      blogPostCollection(where: { slug_exists: true }, order: date_DESC, limit: 10) {
+      postCollection(where: { slug_exists: true }, order: date_DESC, limit: 10) {
         items {
           ${POST_GRAPHQL_FIELDS}
         }
@@ -92,7 +59,7 @@ export async function getAllPostsWithSlug() {
 export async function getAllPosts() {
   const entries = await fetchGraphQL(
     `query {
-      blogPostCollection(order: date_DESC, limit: 10) {
+      postCollection(order: date_DESC, limit: 10) {
         items {
           ${POST_GRAPHQL_FIELDS}
         }
@@ -105,7 +72,7 @@ export async function getAllPosts() {
 export async function getPostAndMorePosts(slug: string) {
   const entry = await fetchGraphQL(
     `query {
-      blogPostCollection(where: { slug: "${slug}" }, limit: 1) {
+      postCollection(where: { slug: "${slug}" }, limit: 1) {
         items {
           ${POST_GRAPHQL_FIELDS}
         }
@@ -114,7 +81,7 @@ export async function getPostAndMorePosts(slug: string) {
   )
   const entries = await fetchGraphQL(
     `query {
-      blogPostCollection(where: { slug_not_in: "${slug}" }, order: date_DESC, limit: 2) {
+      postCollection(where: { slug_not_in: "${slug}" }, order: date_DESC, limit: 2) {
         items {
           ${POST_GRAPHQL_FIELDS}
         }
