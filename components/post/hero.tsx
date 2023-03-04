@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Date from '~/components/common/date'
-import CoverImage from '~/components/common/cover-image'
+import CoverImage from '~/components/common/cover'
 
 type Props = Post;
 
