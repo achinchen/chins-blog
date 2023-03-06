@@ -18,6 +18,7 @@
     "paths": {
       "~/components/*": ["./components/*"],
       "~/constants/*": ["./constants/*"],
+      "~/public/*": ["./public/*"],
       "~/lib/*": ["./lib/*"],
     },
     "typeRoots": ["./node_modules/@types", "./types"],

@@ -24,7 +24,7 @@ export default function Post({ post, morePosts }: Props) {
   }
 
   return (
-    <Layout>
+    <Layout description={post.excerpt || post.title}>
       <Container>
         {router.isFallback ? (
           <PostTitle>Loading…</PostTitle>

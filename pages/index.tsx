@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import Layout from '~/components/layout'
 import PostCards from '~/components/post/cards'
 import Me from '~/components/me'
