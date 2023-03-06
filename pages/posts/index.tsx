@@ -1,6 +1,5 @@
 import Layout from '~/components/layout'
 import PostCards from '~/components/post/cards'
-import Me from '~/components/me'
 import { getAllPosts } from '~/lib/api'
 
 type Props = {
@@ -14,7 +13,6 @@ export default function Index({ posts }: Props) {
     <>
       <Layout>
         <>
-          <Me />
           {morePosts && morePosts.length > 0 && (
             <PostCards posts={morePosts} />
           )}
