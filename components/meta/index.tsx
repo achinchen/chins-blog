@@ -1,12 +1,13 @@
 import Head from 'next/head'
 import { useRouter } from 'next/router'
-import { TITLE, DESCRIPTION, THEME_COLOR, HOME_OG_IMAGE_URL } from './constants'
+import { TITLE, DESCRIPTION, THEME_COLOR, HOME_OG_IMAGE_PATH } from './constants'
 
 export type Props = {
-  description?: string
+  description?: string;
+  image?: string;
 }
 
-export default function Meta({ description = DESCRIPTION }: Props) {
+export default function Meta({ description = DESCRIPTION, image = HOME_OG_IMAGE_PATH }: Props) {
   const router = useRouter()
 
   return (
@@ -30,7 +31,7 @@ export default function Meta({ description = DESCRIPTION }: Props) {
       <meta property="og:title" content={TITLE} key="title" />
       <meta property="og:site_name" content={TITLE} />
       <meta property="og:description" content={description} key="description" />
-      <meta property="og:image" content={HOME_OG_IMAGE_URL} />
+      <meta property="og:image" content={image} />
       <meta property="og:url" content={router.asPath} />
       <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
     </Head>

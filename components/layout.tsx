@@ -6,10 +6,10 @@ type Props = {
   children: JSX.Element;
 } & MetaProps;
 
-export default function Layout({ children, description }: Props) {
+export default function Layout({ children, ...metaProps }: Props) {
   return (
     <>
-      <Meta description={description} />
+      <Meta {...metaProps} />
       <main max-w="screen md:2xl" ma="4 md:auto" min-h="95vh">
         <Navigation />
         {children}
