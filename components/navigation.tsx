@@ -7,8 +7,8 @@ const LINKS = [
     name: 'Home'
   },
   {
-    href: 'https://github.com/achinchen',
-    name: 'Github'
+    href: '/posts',
+    name: 'Posts'
   }
 ]
 
