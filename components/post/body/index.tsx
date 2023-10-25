@@ -3,7 +3,9 @@ import type { Props as PostImageProps } from './image'
 import { Remark } from 'react-remark';
 import PostImage from './image'
 
-export default function PostBody({ content }: { content: string }) { 
+export type Content = string;
+
+export default function PostBody({ content }: { content: Content }) { 
 
   return (
     <div max-w="2xl" mx="auto">
