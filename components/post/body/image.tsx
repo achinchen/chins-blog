@@ -1,7 +1,11 @@
 import type { Props as ImageProps } from '~/components/common/image'
 import Image from '~/components/common/image'
 
-export default function PostImage(props: ImageProps & { src: string }): JSX.Element {
+export type Props = {
+  src?: string 
+} & ImageProps;
+
+export default function PostImage(props: Props) {
   return (
     <Image 
       {...props}
