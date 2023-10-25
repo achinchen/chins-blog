@@ -54,6 +54,7 @@ export default function Post({ post, morePosts }: Props) {
 
 export async function getStaticProps({ params }: { params: { slug: string }}) {
   const data = await getPostAndMorePosts(params.slug)
+  console.log(data)
 
   return {
     props: {
@@ -68,6 +69,6 @@ export async function getStaticPaths() {
   
   return {
     paths: posts?.map(({ slug }) => `/posts/${slug}`) ?? [],
-    fallback: true,
+    fallback: false,
   }
 }
